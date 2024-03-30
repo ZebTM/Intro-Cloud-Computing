@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Enquiry Chatbot</title>
+    <style>
+        .answer {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleAnswer(questionId) {
+            var answer = document.getElementById(questionId);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="/finish" method="POST">
+        <input style="display: none;" id="firstName" name="firstName" value="{{firstName}}" />
+        <input style="display: none;" id="lastName" id="email" name="lastName"  value="{{lastName}}" />
+        <input style="display: none;" id="email" name="email" value="{{email}}" />
+        <button type="button" onclick="toggleAnswer('football_team')">Does the college have a football team?</button> 
+        <p id="football_team" style="display: none;">Yes, the UC Bearcats went 3-9 last season (2023).</p> <br>
+        <button type="button" onclick="toggleAnswer('computer_science_major')">Does it have Computer Science Major?</button> 
+        <p id="computer_science_major" style="display: none;">Yes, Computer Science is offered as a major.</p> <br>
+        <button type="button" onclick="toggleAnswer('tuition')">What is the in-state tuition?</button>
+        <p id="tuition" style="display: none;">The in-state tuition is $13,176.</p> <br>
+        <button type="button" onclick="toggleAnswer('housing')">Does it have on-campus housing?</button>
+        <p id="housing" style="display: none;">Yes, the college provides on-campus housing.</p> <br>
+        <input type="submit" value="Finish Chatting">
+    </form>
+    
+</body>
+</html>
